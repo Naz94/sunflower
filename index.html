@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌻 happy valentine's day</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #fff9e6 0%, #fff1d7 60%, #ffeac2 100%);
+            font-family: 'Quicksand', 'Segoe UI', 'Helvetica Neue', sans-serif;
+            color: #3a412c;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .sunflower-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .petal {
+            position: absolute;
+            background: radial-gradient(circle, #ffdb8a 5%, #fec468 80%);
+            border-radius: 80% 20% 70% 30% / 60% 50% 50% 40%;
+            opacity: 0.18;
+            width: 28px;
+            height: 32px;
+            transform: rotate(25deg);
+            filter: blur(3px);
+            animation: floatGentle 25s infinite ease-in-out;
+        }
+
+        .dot {
+            position: absolute;
+            background: #ffe085;
+            border-radius: 50%;
+            width: 6px;
+            height: 6px;
+            opacity: 0.2;
+            filter: blur(2px);
+            animation: twinkle 20s infinite alternate;
+        }
+
+        @keyframes floatGentle {
+            0% { transform: translateY(0) rotate(25deg) scale(1); opacity: 0.12; }
+            50% { transform: translateY(-30px) rotate(35deg) scale(1.05); opacity: 0.25; }
+            100% { transform: translateY(0) rotate(25deg) scale(1); opacity: 0.12; }
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.1; transform: scale(1); }
+            100% { opacity: 0.3; transform: scale(1.6); }
+        }
+
+        .valentine-card {
+            background: rgba(255, 250, 235, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 48px 24px 48px 24px;
+            border: 2px solid rgba(255, 210, 110, 0.4);
+            box-shadow: 0 25px 40px -18px rgba(110, 70, 15, 0.2),
+                        0 0 0 1px rgba(255, 235, 170, 0.4) inset;
+            max-width: 720px;
+            width: 100%;
+            padding: 3rem 2.5rem;
+            position: relative;
+            z-index: 10;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .flower-greeting {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .sunflower-icon {
+            font-size: 3.6rem;
+            display: inline-block;
+            filter: drop-shadow(0 6px 8px rgba(170, 120, 20, 0.2));
+            animation: sway 6s infinite ease-in-out;
+            transform-origin: center bottom;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(0deg); }
+            33% { transform: rotate(5deg); }
+            66% { transform: rotate(-3deg); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            color: #4c5a3a;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', 'Georgia', serif;
+            text-shadow: 2px 2px 0 rgba(255, 245, 200, 0.7);
+            line-height: 1.2;
+        }
+
+        .sunflower-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            margin: 1rem 0 2.5rem;
+            color: #c49a6c;
+            font-size: 1.3rem;
+        }
+
+        .surprise-button {
+            background: linear-gradient(145deg, #ffd675, #fec358);
+            border: none;
+            padding: 1.2rem 2.8rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #3a4027;
+            border-radius: 80px;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 0 #b4823a, 0 12px 28px rgba(180, 120, 20, 0.3);
+            transition: all 0.15s ease;
+            cursor: pointer;
+            display: inline-block;
+            margin: 1.5rem auto 1rem;
+            border: 2px solid #fff5cc;
+            font-family: 'Quicksand', sans-serif;
+            transform: translateY(0);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .surprise-button:hover {
+            background: linear-gradient(145deg, #ffde8a, #ffc968);
+            box-shadow: 0 7px 0 #9e6e38, 0 18px 32px #ca973f;
+            transform: translateY(3px);
+        }
+
+        .button-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .button-hint {
+            color: #8f8968;
+            margin-top: 0.8rem;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        .sunflower-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .rain-item {
+            position: absolute;
+            color: #ffcc33;
+            font-size: 2.2rem;
+            animation: rain 3s linear forwards;
+            filter: drop-shadow(0 8px 6px rgba(150, 100, 10, 0.3));
+            z-index: 10000;
+            text-shadow: 0 0 5px #ffeeaa;
+        }
+
+        @keyframes rain {
+            0% {
+                transform: translateY(-20vh) rotate(0deg);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(120vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .gentle-credit {
+            margin-top: 2.8rem;
+            font-size: 0.7rem;
+            color: #b7aa83;
+            text-align: center;
+            border-top: 1px solid #efe3bf;
+            padding-top: 1.5rem;
+            opacity: 0.6;
+        }
+
+        .gentle-credit a {
+            color: #9c8e5c;
+            text-decoration: none;
+            border-bottom: 1px dotted #dbb679;
+        }
+
+        @media (max-width: 550px) {
+            .valentine-card { padding: 2rem 1.5rem; }
+            h1 { font-size: 2.4rem; }
+            .sunflower-icon { font-size: 2.8rem; }
+            .surprise-button { font-size: 1.5rem; padding: 1rem 1.8rem; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sunflower-bg">
+        <div class="petal" style="top: 12%; left: 8%; width: 42px; height: 46px; background: #ffc56e; opacity: 0.15; animation-delay: -3s;"></div>
+        <div class="petal" style="top: 68%; left: 82%; width: 34px; height: 38px; background: #fdb952; opacity: 0.16; animation-delay: -9s;"></div>
+        <div class="petal" style="top: 43%; left: 23%; width: 26px; height: 30px; background: #fec779; opacity: 0.18; animation-delay: -1s;"></div>
+        <div class="petal" style="top: 78%; left: 15%; width: 38px; height: 42px; background: #fdbb4c; opacity: 0.13; animation-delay: -14s;"></div>
+        <div class="petal" style="top: 18%; left: 76%; width: 48px; height: 52px; background: #ffe099; opacity: 0.12; animation-delay: -6s;"></div>
+        <div class="petal" style="top: 52%; left: 65%; width: 30px; height: 34px; background: #ffd27a; opacity: 0.17; filter: blur(4px);"></div>
+        
+        <div class="dot" style="top: 27%; left: 44%;"></div>
+        <div class="dot" style="top: 33%; left: 70%; width: 10px; height: 10px;"></div>
+        <div class="dot" style="top: 88%; left: 35%; width: 8px; height: 8px; animation-duration: 22s;"></div>
+        <div class="dot" style="top: 53%; left: 52%; width: 5px; height: 5px;"></div>
+        <div class="dot" style="top: 72%; left: 90%; width: 12px; height: 12px; background: #ffe694;"></div>
+    </div>
+
+    <div class="valentine-card">
+        <div class="flower-greeting">
+            <span class="sunflower-icon">🌻</span>
+            <span class="sunflower-icon" style="animation-delay: 0.8s;">🌻</span>
+            <span class="sunflower-icon" style="animation-delay: 0.3s; font-size: 4rem;">🌻</span>
+            <span class="sunflower-icon" style="animation-delay: 1.2s;">🌻</span>
+            <span class="sunflower-icon" style="animation-delay: 0.5s;">🌻</span>
+        </div>
+
+        <h1>happy valentine's day</h1>
+        
+        <div class="sunflower-divider">
+            <span>✦</span> <span style="font-size: 1.6rem;">🌻</span> <span>✦</span> <span style="font-size: 1.3rem;">🌻</span> <span>✦</span>
+        </div>
+
+        <div class="button-wrapper">
+            <button class="surprise-button" id="surpriseBtn">
+                🌻 click for a surprise 🌻
+            </button>
+            <span class="button-hint">(sunflower rain)</span>
+        </div>
+
+        <div class="gentle-credit">
+            <span>🌱 with care — </span>
+            <a href="https://naz94.github.io/valentines/" target="_blank">rebel designs</a>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const btn = document.getElementById('surpriseBtn');
+            
+            function createSunflowerRain() {
+                const rainContainer = document.createElement('div');
+                rainContainer.className = 'sunflower-rain';
+                document.body.appendChild(rainContainer);
+
+                // ONLY SUNFLOWERS. no daisies. no wheat. no seedlings. just 🌻.
+                const sunflowerSymbols = ['🌻', '🌻', '🌻', '🌻', '🌻', '🌻', '🌻', '🌻', '🌻', '🌻', '🌻', '🌻', '🌻', '🌻', '🌻', '🌻', '🌻', '🌻', '🌻', '🌻'];
+                
+                for (let i = 0; i < 120; i++) {
+                    setTimeout(() => {
+                        const rain = document.createElement('div');
+                        rain.className = 'rain-item';
+                        
+                        // always 🌻. always.
+                        rain.innerHTML = '🌻';
+                        
+                        const startX = Math.random() * 100;
+                        rain.style.left = startX + '%';
+                        rain.style.top = '-10%';
+                        
+                        const size = Math.floor(Math.random() * 32) + 28;
+                        rain.style.fontSize = size + 'px';
+                        
+                        const duration = Math.random() * 2 + 2;
+                        rain.style.animation = `rain ${duration}s linear forwards`;
+                        
+                        rain.style.opacity = Math.random() * 0.5 + 0.5;
+                        
+                        rainContainer.appendChild(rain);
+                        
+                        setTimeout(() => {
+                            rain.remove();
+                        }, duration * 1000);
+                    }, i * 30);
+                }
+
+                setTimeout(() => {
+                    rainContainer.remove();
+                }, 6000);
+            }
+
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                btn.innerText = '🌻 sunflowers are falling 🌻';
+                btn.style.background = 'linear-gradient(145deg, #ffe694, #ffd166)';
+                btn.style.boxShadow = '0 6px 0 #a07439, 0 12px 30px #dba145';
+                btn.style.transform = 'translateY(4px)';
+                
+                createSunflowerRain();
+                
+                setTimeout(() => {
+                    btn.innerText = '🌻 click for a surprise 🌻';
+                    btn.style.background = 'linear-gradient(145deg, #ffd675, #fec358)';
+                    btn.style.boxShadow = '0 10px 0 #b4823a, 0 12px 28px rgba(180, 120, 20, 0.3)';
+                    btn.style.transform = 'translateY(0)';
+                }, 3000);
+            });
+        })();
+    </script>
+</body>
+</html>
